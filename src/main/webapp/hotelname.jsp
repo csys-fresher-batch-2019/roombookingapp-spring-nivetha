@@ -1,7 +1,10 @@
+<%@page import="com.nive.hotelroom.domain.HotelName"%>
+<%@page import="com.nive.hotelroom.factory.DAOFactory"%>
+<%@page import="com.nive.hotelroom.dao.HotelDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<%@ page import="com.onlineroom.imp.HotelName" %>
+<%@ page import="com.nive.hotelroom.dao.impl.HotelNameImpl" %>
 
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
@@ -44,7 +47,7 @@
 </div>
 <h2>
 <%
-out.print("welcome !!!");
+	out.print("welcome !!!");
 %></h2>
 <br>
 
@@ -131,43 +134,25 @@ div.gallery img {
 }
 </style>
 <body style='background-color:"#F7F9F9";'> 
-
-
-
 <br/><br/>
-
 <h2>List Hotels</h2>
-
-
-
 </br></br>
-
-
 <%
-HotelName h=new HotelName();
-List<HotelName> list = new ArrayList<HotelName>();
-  list= h.getHotelDetails1(request.getParameter("hotelName"));
- 
-for (HotelName s : list) {%>
-
+HotelDAO dao=DAOFactory.getHotelDAO();
+List<HotelName> list=dao.getHotelDetails2();
+for (HotelName s : list) {
+%>
 <div class="left">
 <div class="card-desk" class="left">
 <div class="gallery" style="width: 18rem;height: 25rem;">
- <img src="images/<%=s.getPic() %>" class="card-img-top" alt="..." height="180" width="150">
-  <div class="card-body">
-  <h5 class="card-title">Hotel Name: &nbsp <%=s.getHotelName()%><br>Rating: &nbsp <%=s.getRating() %> <br>Location:&nbsp <%=s.getLocation()%><br>Status:&nbsp <%=s.getStatus() %><br>Roomtype:&nbsp <%=s.getRoomType() %><br><a href=roombooking.jsp?hoid=<%=s.getHotelId() %>>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBook now</a> </h5>
- </div>
-  </div>
-  
-  </div>
-  </div>     
-
-
-  <%   
-   } %>
-   
-
-
-
+<img src="images/<%=s.getPic() %>" class="card-img-top" alt="..." height="180" width="150">
+<div class="card-body">
+<h5 class="card-title">Hotel Name: &nbsp <%=s.getHotelName()%><br>Rating: &nbsp <%=s.getRating() %> <br>Location:&nbsp <%=s.getLocation()%><br>Status:&nbsp <%=s.getStatus() %><br>Roomtype:&nbsp <%=s.getRoomType() %><br><a href=roombooking.jsp?hoid=<%=s.getHotelId() %>>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBook now</a> </h5>
+</div>
+</div>
+</div>
+</div>     
+<%   
+} %>
 </body>
 </html>

@@ -1,11 +1,11 @@
+<%@page import="com.nive.hotelroom.domain.HotelName"%>
+<%@page import="com.nive.hotelroom.factory.DAOFactory"%>
+<%@page import="com.nive.hotelroom.dao.HotelDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<%@ page import="com.onlineroom.imp.HotelName" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
-
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -48,7 +48,6 @@ int id=(Integer)sess.getAttribute("userid");
 out.print("welcome" +id+ "!!!");
 %></h2>
 <br>
-
 <title>Select</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -132,25 +131,14 @@ div.gallery img {
 }
 </style>
 <body style='background-color:"#F7F9F9";'> 
-
-
-
 <br/><br/>
-
 <h2>List Hotels</h2>
-
-
-
 </br></br>
-
-
 <%
-HotelName h=new HotelName();
-List<HotelName> list = new ArrayList<HotelName>();
-  list= h.getHotelDetails() ;
- 
-for (HotelName s : list) {%>
-
+HotelDAO dao=DAOFactory.getHotelDAO();
+List<HotelName> list=dao.getHotelDetails();
+for (HotelName s : list) {
+%>
 <div class="left">
 <div class="card-desk" class="left">
 <div class="gallery" style="width: 18rem;height: 25rem;">
@@ -159,16 +147,9 @@ for (HotelName s : list) {%>
   <h5 class="card-title">Hotel Name: &nbsp <%=s.getHotelName()%><br>Rating: &nbsp <%=s.getRating() %> <br>Location:&nbsp <%=s.getLocation()%><br>Status:&nbsp <%=s.getStatus() %><br>Roomtype:&nbsp <%=s.getRoomType() %><br><a href=roombooking.jsp?hoid=<%=s.getHotelId() %>>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBook now</a> </h5>
  </div>
   </div>
-  
   </div>
   </div>     
-
-
   <%   
    } %>
-   
-
-
-
 </body>
 </html>

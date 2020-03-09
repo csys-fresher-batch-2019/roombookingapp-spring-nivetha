@@ -1,0 +1,91 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" > 
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+  <servlet-name>AddHotelservlet</servlet-name>
+  <display-name>AddHotelservlet</display-name>
+  <description></description>
+  <servlet-class>com.nive.hotelroom.servlet.AddHotelservlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  <servlet-name>Adminservlet</servlet-name>
+  <display-name>Adminservlet</display-name>
+  <description></description>
+  <servlet-class>com.nive.hotelroom.servlet.Adminservlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  <servlet-name>Bookingservlet</servlet-name>
+  <display-name>Bookingservlet</display-name>
+  <description></description>
+  <servlet-class>com.nive.hotelroom.servlet.Bookingservlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>Loginservlet</servlet-name>
+  <display-name>Loginservlet</display-name>
+  <description></description>
+  <servlet-class>com.nive.hotelroom.servlet.Loginservlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>registerservlet</servlet-name>
+  <display-name>registerservlet</display-name>
+  <description></description>
+  <servlet-class>com.nive.hotelroom.servlet.registerservlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>UpdateAvaliablesevlet</servlet-name>
+  <display-name>UpdateAvaliablesevlet</display-name>
+  <description></description>
+  <servlet-class>com.nive.hotelroom.servlet.UpdateAvaliablesevlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>UpdatePasswordservlet</servlet-name>
+  <display-name>UpdatePasswordservlet</display-name>
+  <description></description>
+  <servlet-class>com.nive.hotelroom.servlet.UpdatePasswordservlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>UpdatePaymentservlet</servlet-name>
+  <display-name>UpdatePaymentservlet</display-name>
+  <description></description>
+  <servlet-class>com.nive.hotelroom.servlet.UpdatePaymentservlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>AddHotelservlet</servlet-name>
+  <url-pattern>/AddHotelservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>Adminservlet</servlet-name>
+  <url-pattern>/Adminservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>Bookingservlet</servlet-name>
+  <url-pattern>/Bookingservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>Loginservlet</servlet-name>
+  <url-pattern>/Loginservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>registerservlet</servlet-name>
+  <url-pattern>/registerservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>UpdateAvaliablesevlet</servlet-name>
+  <url-pattern>/UpdateAvaliablesevlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>UpdatePasswordservlet</servlet-name>
+  <url-pattern>/UpdatePasswordservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>UpdatePaymentservlet</servlet-name>
+  <url-pattern>/UpdatePaymentservlet</url-pattern>
+  </servlet-mapping>
+</web-app>

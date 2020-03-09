@@ -9,13 +9,13 @@
 <body background="images/book.jpg">
 </center><br/>
 <br/>
-<h2><div align = "center">Update Hotel Available</h2> 
+<h2><div align ="center">Update Hotel Available</h2> 
 <div align="center">
 <form action="UpdateAvaliablesevlet" method="post">
 Enter HotelId:<input type="text" name="hotelId" required/>
 <br/>
 <br/>
-Enter Status:<input type="text" name="status"pattern="^[a-zA-Z]+$"  required/>
+Enter Status:<input type="text" name="status"  required/>
 <br/>
 <br/>
 <input type="submit" name="submit" value="update"/> 

@@ -1,7 +1,10 @@
+<%@page import="com.nive.hotelroom.domain.HotelName"%>
+<%@page import="com.nive.hotelroom.factory.DAOFactory"%>
+<%@page import="com.nive.hotelroom.dao.HotelDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<%@ page import="com.onlineroom.imp.HotelName" %>
+<%@ page import="com.nive.hotelroom.dao.impl.HotelNameImpl" %>
 
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
@@ -44,7 +47,7 @@
 </div>
 <h2>
 <%
-out.print("welcome !!!");
+	out.print("welcome !!!");
 %></h2>
 <br>
 
@@ -144,11 +147,12 @@ div.gallery img {
 
 
 <%
-HotelName h=new HotelName();
-List<HotelName> list = new ArrayList<HotelName>();
-  list= h.getHotelByRating(Float.parseFloat(request.getParameter("rating")));
- 
-for (HotelName s : list) {%>
+HotelName al=new HotelName();
+al.setRating(Float.parseFloat(request.getParameter("rating")));
+HotelDAO dao=DAOFactory.getHotelDAO();
+List<HotelName> list=dao.getHotelByRating(al);
+for (HotelName s : list) {
+%>
 
 <div class="left">
 <div class="card-desk" class="left">
