@@ -11,4 +11,3 @@ public interface RoomTypeDAO {
 	public List<RoomType> getUserbookeddetails(int id) throws DBException;
 
 }
-//
