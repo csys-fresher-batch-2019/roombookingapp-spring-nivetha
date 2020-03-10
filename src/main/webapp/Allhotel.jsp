@@ -16,7 +16,7 @@
 <form>
 <%
 HotelDAO dao=DAOFactory.getHotelDAO();
-List<HotelName> h=dao.getHotelDetails2();
+List<HotelName> h=dao.findAllHotels1();
  out.print("<table border=1 align=center cellpadding=6><tr><th>Hotel Id</th><th>Hotel Name</th><th>Rating</th><th>Location</th><th>Status</th><th>Room Type</th></tr>");
 	for (HotelName hotel : h) {
 	System.out.println(hotel.toString());

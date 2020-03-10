@@ -8,26 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.nive.hotelroom.dao.CustomerDAO;
-import com.nive.hotelroom.domain.CustomerDetails;
 import com.nive.hotelroom.exception.DBException;
 import com.nive.hotelroom.factory.DAOFactory;
 
 /**
  * Servlet implementation class UpdatePaymentservlet
  */
+@SuppressWarnings("serial")
 @WebServlet("/UpdatePaymentservlet")
 public class UpdatePaymentservlet extends HttpServlet {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		int id=Integer.parseInt(request.getParameter("userId"));
-		CustomerDetails al=new CustomerDetails();
-        al.setUserId(id);
 		CustomerDAO p=DAOFactory.getCustomerDAO();
 		try {
-			p.update(al);
+			p.update(id);
 		} catch (DBException e) {
 			e.printStackTrace();
 		}

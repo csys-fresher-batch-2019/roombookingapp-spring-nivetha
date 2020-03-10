@@ -41,9 +41,25 @@ public class RoomController {
 	public List<HotelName> getHotelByLocation(@RequestParam("location") String Location) throws DBException{
 		HotelDAO us=DAOFactory.getHotelDAO();
 	List<HotelName> list = new ArrayList<HotelName>();
-	HotelName h=new HotelName();
-	h.setLocation(Location);
-	 list=us.getHotelByLocation(h);
+	 list=us.getHotelByLocation(Location);
 	 return list;
 	}
+	/*@GetMapping("/search")
+	public MessageDTO Login(@RequestParam("emailId") String EmailId,@RequestParam("passWord") String Password)throws DBException{
+	MessageDTO msg=new MessageDTO();
+	CustomerDetails c=new CustomerDetails();
+	c.setEmailId(EmailId);
+	c.setPassword(Password);
+	CustomerDAO p=DAOFactory.getCustomerDAO();
+	int b=p.save(c);
+			if(b==1)
+			{
+				msg.setInfoMessage("Successfully Logined");
+			}
+			else
+			{
+				msg.setErrorMessage("Failed");
+			}
+			return msg;
+			}*/
 	}

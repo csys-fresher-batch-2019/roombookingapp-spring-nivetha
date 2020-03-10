@@ -7,16 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import org.slf4j.LoggerFactory;
-import com.nive.hotelroom.controller.IndexController;
 import com.nive.hotelroom.dao.CustomerDAO;
 import com.nive.hotelroom.domain.CustomerDetails;
 import com.nive.hotelroom.factory.DAOFactory;
 @WebServlet("/Loginservlet")
 public class Loginservlet extends HttpServlet {
-	
-	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
-
 	private static final long serialVersionUID = 1L;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CustomerDetails c=new CustomerDetails();

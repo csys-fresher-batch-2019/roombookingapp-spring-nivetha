@@ -134,23 +134,12 @@ div.gallery img {
 }
 </style>
 <body style='background-color:"#F7F9F9";'> 
-
-
-
 <br/><br/>
-
 <h2>List Hotels</h2>
-
-
-
 </br></br>
-
-
 <%
-HotelName al=new HotelName();
-al.setRating(Float.parseFloat(request.getParameter("rating")));
 HotelDAO dao=DAOFactory.getHotelDAO();
-List<HotelName> list=dao.getHotelByRating(al);
+List<HotelName> list=dao.getHotelByRating(Float.parseFloat(request.getParameter("rating")));
 for (HotelName s : list) {
 %>
 
