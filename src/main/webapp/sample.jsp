@@ -45,7 +45,7 @@
 <%
 HttpSession sess=request.getSession();
 int id=(Integer)sess.getAttribute("userid");
-out.print("welcome" +id+ "!!!");
+out.print("welcome  " +id+ "  !!!");
 %></h2>
 <br>
 <title>Select</title>
@@ -54,7 +54,7 @@ out.print("welcome" +id+ "!!!");
 </head>
 <style>
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #e5b4fa;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -69,7 +69,7 @@ out.print("welcome" +id+ "!!!");
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color:#ffcccc;
+  background-color:#e5b4fa;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(3,1,3,0.2);
   z-index: 1;
@@ -82,11 +82,11 @@ out.print("welcome" +id+ "!!!");
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #cc0052;}
+.dropdown-content a:hover {background-color: #8d1ebd;}
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: #800033;}
+.dropdown:hover .dropbtn {background-color: #8d1ebd;}
 </style>
 <body>
 
@@ -136,7 +136,7 @@ div.gallery img {
 </br></br>
 <%
 HotelDAO dao=DAOFactory.getHotelDAO();
-List<HotelName> list=dao.getHotelDetails();
+List<HotelName> list=dao.findAllHotels();
 for (HotelName s : list) {
 %>
 <div class="left">

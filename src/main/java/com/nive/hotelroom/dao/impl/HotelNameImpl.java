@@ -18,7 +18,7 @@ import com.nive.hotelroom.util.ConnectionUtil;
 public class HotelNameImpl implements HotelDAO {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 
-	public List<HotelName> getHotelDetails()throws DBException 
+	public List<HotelName> findAllHotels()throws DBException 
 	{
 		List<HotelName> list = new ArrayList<HotelName>();
 
@@ -57,7 +57,7 @@ throw new DBException(ErrorConstant.INVALID_SELECT);
 
 		return list;
 	}
-	public List<HotelName> getHotelDetails2()throws DBException 
+	public List<HotelName> findAllHotels1()throws DBException 
 	{
 		List<HotelName> list = new ArrayList<HotelName>();
 
@@ -98,7 +98,7 @@ throw new DBException(ErrorConstant.INVALID_SELECT);
 	{
 		List<HotelName> list = new ArrayList<HotelName>();
 
-		String sql = "select * from hotel where lower(hotel_name)=?";
+		String sql = "select * from hotel where lower(hotel_name)=lower(?)";
 		try (Connection con = ConnectionUtil.getConnect(); PreparedStatement pst=con.prepareStatement(sql))
 		{
 			LOGGER.debug(sql);
@@ -172,7 +172,7 @@ throw new DBException(ErrorConstant.INVALID_SELECT);
 	public List<HotelName> getHotelByLocation(HotelName al)throws DBException
 	{
 		List<HotelName> list = new ArrayList<HotelName>();
-		String sql = "select *from hotel  where lower(location)=?";
+		String sql = "select *from hotel  where lower(location)=lower(?)";
 		try (Connection con = ConnectionUtil.getConnect();PreparedStatement pst=con.prepareStatement(sql)) {
 			LOGGER.debug(sql);
 			pst.setString(1,al.getLocation());
@@ -239,7 +239,7 @@ throw new DBException(ErrorConstant.INVALID_SELECT);
 		return list;
 	}
 
-	public void hotel(HotelName c)throws DBException 
+	public void save(HotelName c)throws DBException 
 	{
 		String sql = "insert into hotel(hotel_id,hotel_name,location,rating,status,RoomType,pic)values(?,?,?,?,?,?,?)";
 		try (Connection con = ConnectionUtil.getConnect();PreparedStatement ps = con.prepareStatement(sql)) 
@@ -261,7 +261,7 @@ throw new DBException(ErrorConstant.INVALID_SELECT);
 
 	}
 
-	public void updatetable(HotelName al)throws DBException {
+	public void update(HotelName al)throws DBException {
 		String sql = "update hotel set status=? where hotel_id=?";
 		try (Connection con = ConnectionUtil.getConnect();PreparedStatement pst=con.prepareStatement(sql)) {
 			LOGGER.debug(sql);

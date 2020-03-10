@@ -13,7 +13,7 @@ import com.nive.hotelroom.factory.DAOFactory;
 /**
  * Servlet implementation class Bookingservlet
  */
-@WebServlet("/ Bookingservlet")
+@WebServlet("/Bookingservlet")
 public class Bookingservlet extends HttpServlet {
 	
 	/**
@@ -32,7 +32,7 @@ public class Bookingservlet extends HttpServlet {
 		u.setCheckOut(java.sql.Date.valueOf(request.getParameter("check_out")));
 		RoomTypeDAO p=DAOFactory.getRoomTypeDAO();
 		try {
-			p.insertfacilityroom(u);
+			p.save(u);
 		} catch (DBException e) {
 			e.printStackTrace();
 		}

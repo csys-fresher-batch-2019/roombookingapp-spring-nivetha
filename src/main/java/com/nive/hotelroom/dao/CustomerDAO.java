@@ -11,7 +11,7 @@ public interface CustomerDAO {
 	
 	public List<CustomerDetails> getUserDetailsByPayment(CustomerDetails al)throws DBException;
 	
-	public void insertcustomerdetalis( CustomerDetails c)throws DBException;
+	public int save( CustomerDetails c)throws DBException;
 	
 	public void update(CustomerDetails c)throws DBException;
 	

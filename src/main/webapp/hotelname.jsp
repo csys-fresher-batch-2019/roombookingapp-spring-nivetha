@@ -138,8 +138,10 @@ div.gallery img {
 <h2>List Hotels</h2>
 </br></br>
 <%
+HotelName al=new HotelName();
+al.setHotelName(request.getParameter("hotelName"));
 HotelDAO dao=DAOFactory.getHotelDAO();
-List<HotelName> list=dao.getHotelDetails2();
+List<HotelName> list=dao.getHotelDetails1(al);
 for (HotelName s : list) {
 %>
 <div class="left">

@@ -16,7 +16,7 @@ import com.nive.hotelroom.util.ConnectionUtil;
 public class RoomTypeImpl implements RoomTypeDAO {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 
-	public void insertfacilityroom(RoomType c)throws DBException {
+	public void save(RoomType c)throws DBException {
 		String sql = "insert into room(hotel,userid,members,room_type,bed_type,check_in,check_out)values(?,?,?,?,?,?,?)";
 		try (Connection con = ConnectionUtil.getConnect(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setInt(1, c.getHotel());
@@ -55,7 +55,7 @@ public class RoomTypeImpl implements RoomTypeDAO {
 		try (Connection con = ConnectionUtil.getConnect();PreparedStatement ps = con.prepareStatement(sql)) {
 			LOGGER.debug(sql);
 			ps.setInt(1, al.getUser());
-			ResultSet rs = ps.executeQuery(sql);
+			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 			     int user = rs.getInt("userid");
 				Date checkIn = rs.getDate("check_in");
@@ -80,7 +80,7 @@ public class RoomTypeImpl implements RoomTypeDAO {
 		try (Connection con = ConnectionUtil.getConnect();PreparedStatement ps = con.prepareStatement(sql)) {
 			LOGGER.debug(sql);
 			ps.setInt(1, al.getUser());
-			ResultSet rs = ps.executeQuery(sql);
+			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				int user = rs.getInt("userid");
 				int hotelid=rs.getInt("hotel");

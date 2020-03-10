@@ -1,5 +1,4 @@
 package com.nive.hotelroom.controller;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 import org.slf4j.LoggerFactory;
@@ -14,5 +13,4 @@ public class IndexController {
 			Logger.error("this is a error message");
 			return "index.jsp";
 		}
-
 }

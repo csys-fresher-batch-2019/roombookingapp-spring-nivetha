@@ -21,7 +21,6 @@ public class registerservlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username=request.getParameter("userName");
 		String MoblieNo=request.getParameter("mobNo");
@@ -36,7 +35,7 @@ public class registerservlet extends HttpServlet {
 		c.setPassword(Password);
 		CustomerDAO p=DAOFactory.getCustomerDAO();
 		try {
-			p.insertcustomerdetalis(c);
+			p.save(c);
 		} catch (DBException e) {
 			e.printStackTrace();
 		}

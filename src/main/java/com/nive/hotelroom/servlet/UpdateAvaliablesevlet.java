@@ -30,7 +30,7 @@ public class UpdateAvaliablesevlet extends HttpServlet {
 		al.setStatus(status);
 	   HotelDAO p=DAOFactory.getHotelDAO();
 		try {
-			p.updatetable(al);
+			p.update(al);
 		} catch (DBException e) {
 			e.printStackTrace();
 		}

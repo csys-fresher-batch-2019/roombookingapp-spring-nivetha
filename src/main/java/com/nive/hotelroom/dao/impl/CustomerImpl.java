@@ -54,7 +54,7 @@ public class CustomerImpl implements CustomerDAO {
 			LOGGER.debug(sql);
 			pst.setInt(1, al.getUserId());
 			pst.setInt(2, al.getUserId());
-			ResultSet rs = pst.executeQuery(sql);
+			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
 				String userName = rs.getString("user_name");
 				String mobno = rs.getString("mob_no");
@@ -77,15 +77,16 @@ public class CustomerImpl implements CustomerDAO {
 		return list;
 	}
 
-	public void insertcustomerdetalis(CustomerDetails c)throws DBException {
+	public int save(CustomerDetails c)throws DBException {
 		String sql = "insert into customer_table(user_id,user_name,mob_no,city,email_id,pass_word)values(u_id_seq.nextval,?,?,?,?,?)";
+		int rows=0;
 		try (Connection con = ConnectionUtil.getConnect(); PreparedStatement ps = con.prepareStatement(sql)) {
 			ps.setString(1, c.getUserName());
 			ps.setString(2, c.getMobNo());
 			ps.setString(3, c.getCity());
 			ps.setString(4, c.getEmailId());
 			ps.setString(5, c.getPassword());
-			int rows = ps.executeUpdate();
+			 rows = ps.executeUpdate();
 			LOGGER.debug("No of rows inserted :" + rows);
 		}
 
@@ -94,6 +95,7 @@ public class CustomerImpl implements CustomerDAO {
 			throw new DBException(ErrorConstant. INVALID_ADD);
 
 		}
+		return rows;
 
 	}
 
@@ -150,11 +152,8 @@ public class CustomerImpl implements CustomerDAO {
 		      pst.setString(2, c.getPassword());
 		try(ResultSet row =pst. executeQuery();)
 		{
-			
-			
 		                if(row.next()) {
 		               	v= row.getInt("user_Id");
-		               	
 		                }
 		  }
 		}

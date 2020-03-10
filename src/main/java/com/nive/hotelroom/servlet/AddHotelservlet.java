@@ -35,7 +35,7 @@ public class AddHotelservlet extends HttpServlet {
         c.setRoomType(request.getParameter("RoomType"));
         HotelDAO b=DAOFactory.getHotelDAO();
         try {
-			b.hotel(c);
+			b.save(c);
 		} catch (DBException e) {
 			e.printStackTrace();
 		}

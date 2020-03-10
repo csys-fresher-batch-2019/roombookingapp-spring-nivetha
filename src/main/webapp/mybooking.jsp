@@ -21,7 +21,7 @@ int id=(Integer)sess.getAttribute("userid");
 <form action="mybooking.jsp">
 <%
 RoomType al=new RoomType();
-al.setUser(id);
+al.setUser((Integer)sess.getAttribute("userid"));
 RoomTypeDAO dao=DAOFactory.getRoomTypeDAO();
 List<RoomType> list=dao.getUserbookeddetails(al);
 out.print("<table border=1 align=center cellpadding=6><tr><th>User Id</th><th>Hotel Id</th><th>Members</th><th>Room Type</th><th>Bed Type</th><th>Check In</th><th>Check Out</th><th>Payment</th><th>Active Status</th></tr>");

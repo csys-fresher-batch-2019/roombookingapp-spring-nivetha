@@ -8,7 +8,7 @@ public interface RoomTypeDAO {
 	
 	public List<RoomType> getUserCheckInOut(RoomType al)throws DBException;
 	
-	public void insertfacilityroom(RoomType c)throws DBException;
+	public void save(RoomType c)throws DBException;
 	
 	public void delete(RoomType al)throws DBException;
 	

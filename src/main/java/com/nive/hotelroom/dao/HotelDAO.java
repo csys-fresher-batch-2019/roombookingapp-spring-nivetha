@@ -1,15 +1,12 @@
 package com.nive.hotelroom.dao;
-
 import java.util.List;
 import com.nive.hotelroom.domain.HotelName;
 import com.nive.hotelroom.exception.DBException;
 
 public interface HotelDAO {
+	public List<HotelName> findAllHotels()throws DBException;
 	
-	
-	public List<HotelName> getHotelDetails()throws DBException;
-	
-	public List<HotelName> getHotelDetails2()throws DBException;
+	public List<HotelName> findAllHotels1()throws DBException;
 	
 	public List<HotelName> getHotelDetails1(HotelName al)throws DBException; 
     
@@ -19,10 +16,7 @@ public interface HotelDAO {
      
 	public List<HotelName>getBookingDetails(HotelName al)throws DBException;
 	
-    public void hotel ( HotelName al)throws DBException;
+    public void save( HotelName al)throws DBException;
 
-    public void updatetable(HotelName al)throws DBException;
-
-   
-
+    public void update(HotelName al)throws DBException;
 }
