@@ -19,7 +19,6 @@ HotelDAO dao=DAOFactory.getHotelDAO();
 List<HotelName> h=dao.findAllHotels1();
  out.print("<table border=1 align=center cellpadding=6><tr><th>Hotel Id</th><th>Hotel Name</th><th>Rating</th><th>Location</th><th>Status</th><th>Room Type</th></tr>");
 	for (HotelName hotel : h) {
-	System.out.println(hotel.toString());
 	out.print("</td><td>"+hotel.getHotelId()+"</td><td>"+hotel.getHotelName()+"</td><td>"+hotel.getRating()+"</td><td>"+hotel.getLocation()+"</td><td>"+hotel.getStatus()+"</td><td>"+hotel.getRoomType()+"</td></tr>");
 		}
 		out.print("</table></font>");

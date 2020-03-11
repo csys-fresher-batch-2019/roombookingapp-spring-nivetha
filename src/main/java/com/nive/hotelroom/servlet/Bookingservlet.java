@@ -1,5 +1,7 @@
 package com.nive.hotelroom.servlet;
 import java.io.IOException;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +30,8 @@ public class Bookingservlet extends HttpServlet {
 		u.setMembers(Integer.parseInt(request.getParameter("members")));
 		u.setRoomType(request.getParameter("room_type"));
 		u.setBedType(request.getParameter("bed_type"));
-		u.setCheckIn(java.sql.Date.valueOf(request.getParameter("check_in")));
-		u.setCheckOut(java.sql.Date.valueOf(request.getParameter("check_out")));
+		u.setCheckIn(LocalDate.parse(request.getParameter("check_in")));
+		u.setCheckOut(LocalDate.parse(request.getParameter("check_out")));
 		RoomTypeDAO p=DAOFactory.getRoomTypeDAO();
 		try {
 			p.save(u);

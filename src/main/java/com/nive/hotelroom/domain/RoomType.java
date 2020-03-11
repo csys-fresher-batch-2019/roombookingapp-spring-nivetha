@@ -1,6 +1,7 @@
 package com.nive.hotelroom.domain;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class RoomType {
 	private int user;
@@ -8,8 +9,8 @@ public class RoomType {
 	private int members;
 	private String roomType;
 	private String bedType;
-	private Date checkIn;
-	private Date checkOut;
+	private LocalDate checkIn;
+	private LocalDate checkOut;
 	private String payment;
 	private String activeStatus;
 
@@ -53,19 +54,19 @@ public class RoomType {
 		this.bedType = bedType;
 	}
 
-	public Date getCheckIn() {
+	public LocalDate getCheckIn() {
 		return checkIn;
 	}
 
-	public void setCheckIn(Date checkIn) {
+	public void setCheckIn(LocalDate checkIn) {
 		this.checkIn = checkIn;
 	}
 
-	public Date getCheckOut() {
+	public LocalDate getCheckOut() {
 		return checkOut;
 	}
 
-	public void setCheckOut(Date checkOut) {
+	public void setCheckOut(LocalDate checkOut) {
 		this.checkOut = checkOut;
 	}
 
@@ -91,9 +92,6 @@ public class RoomType {
 				+ ", bedType=" + bedType + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", payment=" + payment
 				+ ", activeStatus=" + activeStatus + "]";
 	}
-	public String toString1() {
-		return "RoomType [ user="+user+", checkIn=" + checkIn + ", checkOut=" + checkOut + "]";
-	}
-	
+
 
 }

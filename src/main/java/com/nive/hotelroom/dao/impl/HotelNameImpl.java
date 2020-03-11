@@ -22,7 +22,7 @@ public class HotelNameImpl implements HotelDAO {
 	public List<HotelName> findAllHotels() throws DBException {
 		List<HotelName> list = new ArrayList<HotelName>();
 
-		String sql = "select * from hotel";
+		String sql = "select hotel_name,location,rating,status,hotel_id,RoomType,pic from hotel";
 		try (Connection con = ConnectionUtil.getConnect(); PreparedStatement pst = con.prepareStatement(sql)) {
 			LOGGER.debug(sql);
 			ResultSet rs = pst.executeQuery();
@@ -58,7 +58,7 @@ public class HotelNameImpl implements HotelDAO {
 	public List<HotelName> findAllHotels1() throws DBException {
 		List<HotelName> list = new ArrayList<HotelName>();
 
-		String sql = "select * from hotel";
+		String sql = "select hotel_name,location,rating,status,hotel_id,RoomType from hotel";
 		try (Connection con = ConnectionUtil.getConnect(); PreparedStatement pst = con.prepareStatement(sql)) {
 			LOGGER.debug(sql);
 			ResultSet rs = pst.executeQuery();
@@ -93,7 +93,7 @@ public class HotelNameImpl implements HotelDAO {
 	public List<HotelName> getHotelDetails1(String Hotelname) throws DBException {
 		List<HotelName> list = new ArrayList<HotelName>();
 
-		String sql = "select * from hotel where lower(hotel_name)=lower(?)";
+		String sql = "select hotel_name,location,rating,status,hotel_id,RoomType,pic from hotel where lower(hotel_name)=lower(?)";
 		try (Connection con = ConnectionUtil.getConnect(); PreparedStatement pst = con.prepareStatement(sql)) {
 			LOGGER.debug(sql);
 			pst.setString(1, Hotelname);
@@ -130,7 +130,7 @@ public class HotelNameImpl implements HotelDAO {
 
 	public List<HotelName> getHotelByRating(Float Rating) throws DBException {
 		List<HotelName> list = new ArrayList<HotelName>();
-		String sql = "select * from hotel where rating=?";
+		String sql = "select hotel_name,location,rating,status,hotel_id,RoomType,pic from hotel where rating=?";
 		try (Connection con = ConnectionUtil.getConnect(); PreparedStatement pst = con.prepareStatement(sql)) {
 			LOGGER.debug(sql);
 			pst.setFloat(1, Rating);
@@ -166,7 +166,7 @@ public class HotelNameImpl implements HotelDAO {
 
 	public List<HotelName> getHotelByLocation(String Location) throws DBException {
 		List<HotelName> list = new ArrayList<HotelName>();
-		String sql = "select *from hotel  where lower(location)=lower(?)";
+		String sql = "select hotel_name,location,rating,status,hotel_id,RoomType,pic from hotel  where lower(location)=lower(?)";
 		try (Connection con = ConnectionUtil.getConnect(); PreparedStatement pst = con.prepareStatement(sql)) {
 			LOGGER.debug(sql);
 			pst.setString(1, Location);

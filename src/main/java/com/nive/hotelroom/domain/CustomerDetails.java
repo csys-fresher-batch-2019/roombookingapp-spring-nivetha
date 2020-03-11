@@ -69,13 +69,5 @@ public class CustomerDetails {
 		return "Customer [userId=" + userId + ", userName=" + userName + ", mobNo=" + mobNo + ", city=" + city
 				+ ", emailId=" + emailId + ", password=" + password + ", payment=" + payment + "]";
 	}
-	public String toString1() {
-		return "Customer [userId=" + userId + ", userName=" + userName + ", city=" + city+ ", emailId=" + emailId + "]";
-	}
-	public String toString2() {
-		return "Customer [ userName=" + userName + ", mobNo=" + mobNo + ", city=" + city
-				+ ", emailId=" + emailId + ", payment=" + payment + "]";
-	}
-
 
 }

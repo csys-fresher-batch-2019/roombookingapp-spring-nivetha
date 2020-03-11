@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.LoggerFactory;
@@ -27,8 +28,8 @@ public class RoomTypeImpl implements RoomTypeDAO {
 			ps.setInt(3, c.getMembers());
 			ps.setString(4, c.getRoomType());
 			ps.setString(5, c.getBedType());
-			ps.setDate(6, (java.sql.Date) c.getCheckIn());
-			ps.setDate(7, (java.sql.Date) c.getCheckOut());
+			ps.setDate(6, Date.valueOf(c.getCheckIn()));
+			ps.setDate(7, Date.valueOf(c.getCheckOut()));
 			int rows = ps.executeUpdate();
 			LOGGER.debug("No of rows inserted :" + rows);
 		} catch (Exception e) {
@@ -52,8 +53,8 @@ public class RoomTypeImpl implements RoomTypeDAO {
 				int member = rs.getInt("members");
 				String roomType = rs.getString("room_type");
 				String bedType = rs.getString("bed_type");
-				Date checkIn = rs.getDate("check_in");
-				Date checkOut = rs.getDate("check_out");
+				LocalDate checkIn = LocalDate.parse(rs.getString("check_in"));
+				LocalDate checkOut = LocalDate.parse(rs.getString("check_out"));
 				String payment = rs.getString("payment");
 				String activeStatus = rs.getString("active_status");
 				RoomType n = new RoomType();
