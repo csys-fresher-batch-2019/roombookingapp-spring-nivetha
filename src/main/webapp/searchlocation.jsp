@@ -9,6 +9,8 @@
 <%@ page import="java.util.ArrayList" %>
 <html>
 <head>
+<% ArrayList<HotelName> a = (ArrayList)request.getAttribute("output");
+%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style>
 .topnav {
@@ -39,7 +41,7 @@
 <body>
 <div class="topnav">
   <a class="active" href="sample.jsp">UserHome</a>
-  <a href="mybooking.jsp">My Booking</a>
+  <a href="mybookingservlet">My Booking</a>
   <a href="index.jsp">Logout</a>
 </div>
 <h2>
@@ -134,9 +136,7 @@ div.gallery img {
 <h2>List Hotels</h2>
 </br></br>
 <%
-HotelDAO dao=DAOFactory.getHotelDAO();
-List<HotelName> list=dao.getHotelByLocation(request.getParameter("location"));
-for (HotelName s : list) {
+for (HotelName s : a) {
 %>
 
 <div class="left">

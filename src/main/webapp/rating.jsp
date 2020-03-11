@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="searchrating.jsp" method="post" >
+<form action="RatingServlet" >
 <h2>Search by Rating</h2>
 Enter Rating:<input type="float" name="rating" required/><br><br>
 <input type="submit" name="submit" value="Search"/> 

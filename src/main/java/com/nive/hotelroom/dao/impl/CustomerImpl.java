@@ -4,13 +4,15 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
+
 import com.nive.hotelroom.domain.CustomerDetails;
 import com.nive.hotelroom.exception.DBException;
 import com.nive.hotelroom.exception.ErrorConstant;
 import com.nive.hotelroom.controller.IndexController;
 import com.nive.hotelroom.dao.CustomerDAO;
 import com.nive.hotelroom.util.ConnectionUtil;
-
+@Repository
 public class CustomerImpl implements CustomerDAO {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 

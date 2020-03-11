@@ -16,12 +16,11 @@
 </head>
 <body background="images/book.jpg">
 <h3> <center>MY BOOKING</center></h3>
-<form action="mybooking.jsp">
+<form action="mybookingservlet">
 <%
 
 out.print("<table border=1 align=center cellpadding=6><tr><th>User Id</th><th>Hotel Id</th><th>Members</th><th>Room Type</th><th>Bed Type</th><th>Check In</th><th>Check Out</th><th>Payment</th><th>Active Status</th></tr>");
 	for (RoomType hotel : a) {
-	System.out.println(hotel.toString());
 	out.print("</td><td>"+hotel.getUser()+"</td><td>"+hotel.getHotel()+"</td><td>"+hotel.getMembers()+"</td><td>"+hotel.getRoomType()+"</td><td>"+hotel.getBedType()+"</td><td>"+hotel.getCheckIn()+"</td><td>"+hotel.getCheckOut()+"</td><td>"+hotel.getPayment()+"</td><td>"+hotel.getActiveStatus()+"</td></tr>");
 		}
 		out.print("</table></font>");

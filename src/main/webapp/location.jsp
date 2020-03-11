@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="searchlocation.jsp" method="post" >
+<form action="Locationservlet">
 
 <h2>Search by Location</h2>
 Enter Location:<input type="text" name="location"  required/><br><br>

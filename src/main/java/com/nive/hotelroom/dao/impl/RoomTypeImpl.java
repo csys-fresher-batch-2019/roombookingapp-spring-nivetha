@@ -7,13 +7,15 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
+
 import com.nive.hotelroom.controller.IndexController;
 import com.nive.hotelroom.dao.RoomTypeDAO;
 import com.nive.hotelroom.domain.RoomType;
 import com.nive.hotelroom.exception.DBException;
 import com.nive.hotelroom.exception.ErrorConstant;
 import com.nive.hotelroom.util.ConnectionUtil;
-
+@Repository
 public class RoomTypeImpl implements RoomTypeDAO {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 
@@ -39,8 +41,9 @@ public class RoomTypeImpl implements RoomTypeDAO {
 	public List<RoomType> getUserbookeddetails(int id) throws DBException {
 		List<RoomType> list = new ArrayList<RoomType>();
 
-		String sql = "select * from room where userid=?";
+		String sql = "select userid,hotel,members,room_type,bed_type,check_in,check_out,payment,active_status from room where userid=?";
 		try (Connection con = ConnectionUtil.getConnect(); PreparedStatement ps = con.prepareStatement(sql)) {
+			ps.setInt(1,id);
 			LOGGER.debug(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {

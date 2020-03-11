@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import com.nive.hotelroom.controller.IndexController;
 import com.nive.hotelroom.dao.HotelDAO;
@@ -14,7 +15,7 @@ import com.nive.hotelroom.domain.HotelName;
 import com.nive.hotelroom.exception.DBException;
 import com.nive.hotelroom.exception.ErrorConstant;
 import com.nive.hotelroom.util.ConnectionUtil;
-
+@Repository
 public class HotelNameImpl implements HotelDAO {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 

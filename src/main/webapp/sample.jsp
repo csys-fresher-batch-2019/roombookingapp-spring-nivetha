@@ -8,6 +8,8 @@
 <%@ page import="java.util.ArrayList" %>
 <html>
 <head>
+<% ArrayList<HotelName> a = (ArrayList)request.getAttribute("output");
+%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style>
 .topnav {
@@ -38,15 +40,14 @@
 <body>
 <div class="topnav">
   <a class="active" href="sample.jsp">UserHome</a>
-  <a href="mybooking.jsp">My Booking</a>
+  <a href="mybookingservlet">My Booking</a>
   <a href="index.jsp">Logout</a>
 </div>
+<br>
 <h2>
-<%
-HttpSession sess=request.getSession();
+<%HttpSession sess=request.getSession();
 int id=(Integer)sess.getAttribute("userid");
-out.print("welcome  " +id+ "  !!!");
-%></h2>
+out.print("welcome  " +id+ "  !!!"); %></h2>
 <br>
 <title>Select</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -135,10 +136,10 @@ div.gallery img {
 <h2>List Hotels</h2>
 </br></br>
 <%
-HotelDAO dao=DAOFactory.getHotelDAO();
-List<HotelName> list=dao.findAllHotels();
-for (HotelName s : list) {
+for (HotelName s : a) {
 %>
+
+
 <div class="left">
 <div class="card-desk" class="left">
 <div class="gallery" style="width: 18rem;height: 25rem;">
@@ -151,5 +152,6 @@ for (HotelName s : list) {
   </div>     
   <%   
    } %>
+  
 </body>
 </html>

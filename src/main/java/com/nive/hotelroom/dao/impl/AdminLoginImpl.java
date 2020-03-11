@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import com.nive.hotelroom.controller.IndexController;
 import com.nive.hotelroom.dao.AdminDAO;
@@ -12,7 +13,7 @@ import com.nive.hotelroom.domain.AdminLogin;
 import com.nive.hotelroom.exception.DBException;
 import com.nive.hotelroom.exception.ErrorConstant;
 import com.nive.hotelroom.util.ConnectionUtil;
-
+@Repository
 public class AdminLoginImpl implements AdminDAO {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 

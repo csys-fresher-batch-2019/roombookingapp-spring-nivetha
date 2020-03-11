@@ -1,3 +1,4 @@
+
 <%@page import="com.nive.hotelroom.domain.HotelName"%>
 <%@page import="com.nive.hotelroom.factory.DAOFactory"%>
 <%@page import="com.nive.hotelroom.dao.HotelDAO"%>
@@ -12,6 +13,8 @@
 
 <html>
 <head>
+<% ArrayList<HotelName> a = (ArrayList)request.getAttribute("output");
+%>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style>
 .topnav {
@@ -138,9 +141,7 @@ div.gallery img {
 <h2>List Hotels</h2>
 </br></br>
 <%
-HotelDAO dao=DAOFactory.getHotelDAO();
-List<HotelName> list=dao.getHotelDetails1(request.getParameter("hotelName"));
-for (HotelName s : list) {
+for (HotelName s : a) {
 %>
 <div class="left">
 <div class="card-desk" class="left">

@@ -1,36 +1,36 @@
 package com.nive.hotelroom.servlet;
 
-import java.util.List;
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import com.nive.hotelroom.dao.RoomTypeDAO;
-import com.nive.hotelroom.domain.RoomType;
-import com.nive.hotelroom.exception.DBException;
-@WebServlet("/mybookingservlet")
-@SuppressWarnings("serial")
-public class mybookingservlet extends HttpServlet {
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.nive.hotelroom.dao.HotelDAO;
+import com.nive.hotelroom.domain.HotelName;
+import com.nive.hotelroom.exception.DBException;
+@WebServlet("/Locationservlet")
+@SuppressWarnings("serial")
+public class Locationservlet extends HttpServlet {
 	@Autowired
-	RoomTypeDAO dao;
+	HotelDAO dao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+
+		
 		try {
-			HttpSession sess=request.getSession(false);
-			int id=(Integer)(sess.getAttribute("userid"));
-			List<RoomType> list=dao.getUserbookeddetails(id);
+			List<HotelName> list=dao.getHotelByLocation(request.getParameter("location"));
 			request.setAttribute("output", list);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("mybooking.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("searchlocation.jsp");
 			dispatcher.forward(request, response);
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
+		
 	}
-
 }

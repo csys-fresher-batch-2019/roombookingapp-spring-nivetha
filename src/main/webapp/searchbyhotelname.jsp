@@ -9,7 +9,7 @@
 <body>
 <h2>Search by Hotel</h2>
 <body>
-<form action="hotelname.jsp" method="post">
+<form action="HotelServlet">
 Enter HotelName:<input type="text" name="hotelName"  required/><br><br>
 <input type="submit" name="submit" value="Search"/> 
 </form>
