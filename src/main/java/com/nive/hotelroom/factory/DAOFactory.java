@@ -10,18 +10,21 @@ import com.nive.hotelroom.dao.impl.HotelNameImpl;
 import com.nive.hotelroom.dao.impl.RoomTypeImpl;
 
 public class DAOFactory {
-	
+
 	public static CustomerDAO getCustomerDAO() {
 		return new CustomerImpl();
 	}
+
 	public static AdminDAO getAdminDAO() {
 		return new AdminLoginImpl();
 	}
+
 	public static HotelDAO getHotelDAO() {
-		return new HotelNameImpl() ;
+		return new HotelNameImpl();
 	}
+
 	public static RoomTypeDAO getRoomTypeDAO() {
 		return new RoomTypeImpl();
 	}
-	
+
 }

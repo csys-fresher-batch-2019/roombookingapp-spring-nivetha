@@ -1,4 +1,5 @@
 package com.nive.hotelroom.servlet;
+
 import java.io.IOException;
 import java.time.LocalDate;
 
@@ -17,22 +18,23 @@ import com.nive.hotelroom.factory.DAOFactory;
  */
 @WebServlet("/Bookingservlet")
 public class Bookingservlet extends HttpServlet {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RoomType u=new RoomType();
-   	    u.setUser(Integer.parseInt(request.getParameter("userId")));
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RoomType u = new RoomType();
+		u.setUser(Integer.parseInt(request.getParameter("userId")));
 		u.setHotel(Integer.parseInt(request.getParameter("hotelId")));
 		u.setMembers(Integer.parseInt(request.getParameter("members")));
 		u.setRoomType(request.getParameter("room_type"));
 		u.setBedType(request.getParameter("bed_type"));
 		u.setCheckIn(LocalDate.parse(request.getParameter("check_in")));
 		u.setCheckOut(LocalDate.parse(request.getParameter("check_out")));
-		RoomTypeDAO p=DAOFactory.getRoomTypeDAO();
+		RoomTypeDAO p = DAOFactory.getRoomTypeDAO();
 		try {
 			p.save(u);
 		} catch (DBException e) {
@@ -40,4 +42,4 @@ public class Bookingservlet extends HttpServlet {
 		}
 		response.sendRedirect("booked.jsp");
 	}
-	}
+}

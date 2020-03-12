@@ -20,16 +20,17 @@ import com.nive.hotelroom.exception.DBException;
 public class sampleservlet extends HttpServlet {
 	@Autowired
 	HotelDAO dao;
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		try {
-		List<HotelName> list = dao.findAllHotels();
-		request.setAttribute("output", list);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("sample.jsp");
-		dispatcher.forward(request, response);
-		} catch(DBException e) {
+			List<HotelName> list = dao.findAllHotels();
+			request.setAttribute("output", list);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("sample.jsp");
+			dispatcher.forward(request, response);
+		} catch (DBException e) {
 			e.printStackTrace();
-		}	
+		}
 	}
 }

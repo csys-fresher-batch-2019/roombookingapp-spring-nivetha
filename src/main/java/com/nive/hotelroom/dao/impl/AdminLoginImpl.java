@@ -13,6 +13,7 @@ import com.nive.hotelroom.domain.AdminLogin;
 import com.nive.hotelroom.exception.DBException;
 import com.nive.hotelroom.exception.ErrorConstant;
 import com.nive.hotelroom.util.ConnectionUtil;
+
 @Repository
 public class AdminLoginImpl implements AdminDAO {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(IndexController.class);

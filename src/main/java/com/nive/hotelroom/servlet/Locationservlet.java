@@ -15,22 +15,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.nive.hotelroom.dao.HotelDAO;
 import com.nive.hotelroom.domain.HotelName;
 import com.nive.hotelroom.exception.DBException;
+
 @WebServlet("/Locationservlet")
 @SuppressWarnings("serial")
 public class Locationservlet extends HttpServlet {
 	@Autowired
 	HotelDAO dao;
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		try {
-			List<HotelName> list=dao.getHotelByLocation(request.getParameter("location"));
+			List<HotelName> list = dao.getHotelByLocation(request.getParameter("location"));
 			request.setAttribute("output", list);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("searchlocation.jsp");
 			dispatcher.forward(request, response);
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 }

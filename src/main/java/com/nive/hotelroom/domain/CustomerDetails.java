@@ -1,4 +1,5 @@
 package com.nive.hotelroom.domain;
+
 public class CustomerDetails {
 	private int userId;
 	private String userName;

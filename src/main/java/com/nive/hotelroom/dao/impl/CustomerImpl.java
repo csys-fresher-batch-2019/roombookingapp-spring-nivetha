@@ -12,6 +12,7 @@ import com.nive.hotelroom.exception.ErrorConstant;
 import com.nive.hotelroom.controller.IndexController;
 import com.nive.hotelroom.dao.CustomerDAO;
 import com.nive.hotelroom.util.ConnectionUtil;
+
 @Repository
 public class CustomerImpl implements CustomerDAO {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(IndexController.class);

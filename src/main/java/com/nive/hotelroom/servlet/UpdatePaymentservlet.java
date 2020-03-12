@@ -17,9 +17,10 @@ import com.nive.hotelroom.factory.DAOFactory;
 @SuppressWarnings("serial")
 @WebServlet("/UpdatePaymentservlet")
 public class UpdatePaymentservlet extends HttpServlet {
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		int id=Integer.parseInt(request.getParameter("userId"));
-		CustomerDAO p=DAOFactory.getCustomerDAO();
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("userId"));
+		CustomerDAO p = DAOFactory.getCustomerDAO();
 		try {
 			p.update(id);
 		} catch (DBException e) {

@@ -12,32 +12,30 @@ import com.nive.hotelroom.domain.AdminLogin;
 import com.nive.hotelroom.factory.DAOFactory;
 
 @WebServlet("/Adminservlet")
-public class Adminservlet extends HttpServlet { 
-    
+public class Adminservlet extends HttpServlet {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		AdminDAO c=DAOFactory.getAdminDAO();
-		String s=null;
-        String Admin=request.getParameter("adminName");
-		String Password=request.getParameter("password");
-		AdminLogin al=new AdminLogin();
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		AdminDAO c = DAOFactory.getAdminDAO();
+		String s = null;
+		String Admin = request.getParameter("adminName");
+		String Password = request.getParameter("password");
+		AdminLogin al = new AdminLogin();
 		al.setAdminName(Admin);
 		al.setPassword(Password);
 		try {
-		s=c.login(al);
-		}
-		catch(Exception e)
-		{
+			s = c.login(al);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if(s.equals("success"))
-		response.sendRedirect("features.jsp");
+		if (s.equals("success"))
+			response.sendRedirect("features.jsp");
 		else
-			response.sendRedirect("admin.jsp");		
+			response.sendRedirect("admin.jsp");
 	}
 }

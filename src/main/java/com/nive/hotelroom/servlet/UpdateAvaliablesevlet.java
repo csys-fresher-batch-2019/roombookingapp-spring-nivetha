@@ -10,25 +10,27 @@ import com.nive.hotelroom.dao.HotelDAO;
 import com.nive.hotelroom.domain.HotelName;
 import com.nive.hotelroom.exception.DBException;
 import com.nive.hotelroom.factory.DAOFactory;
+
 /**
  * Servlet implementation class UpdateAvaliablesevlet
  */
 
 @WebServlet("/UpdateAvaliablesevlet")
 public class UpdateAvaliablesevlet extends HttpServlet {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id=Integer.parseInt(request.getParameter("hotelId"));
-		String status=request.getParameter("status");
-		HotelName al=new HotelName();
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("hotelId"));
+		String status = request.getParameter("status");
+		HotelName al = new HotelName();
 		al.setHotelId(id);
 		al.setStatus(status);
-	   HotelDAO p=DAOFactory.getHotelDAO();
+		HotelDAO p = DAOFactory.getHotelDAO();
 		try {
 			p.update(al);
 		} catch (DBException e) {

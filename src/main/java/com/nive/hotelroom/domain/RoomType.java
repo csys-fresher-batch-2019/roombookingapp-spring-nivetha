@@ -1,6 +1,5 @@
 package com.nive.hotelroom.domain;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class RoomType {
@@ -92,6 +91,5 @@ public class RoomType {
 				+ ", bedType=" + bedType + ", checkIn=" + checkIn + ", checkOut=" + checkOut + ", payment=" + payment
 				+ ", activeStatus=" + activeStatus + "]";
 	}
-
 
 }

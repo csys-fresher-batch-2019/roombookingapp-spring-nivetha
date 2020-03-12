@@ -15,6 +15,7 @@ import com.nive.hotelroom.domain.HotelName;
 import com.nive.hotelroom.exception.DBException;
 import com.nive.hotelroom.exception.ErrorConstant;
 import com.nive.hotelroom.util.ConnectionUtil;
+
 @Repository
 public class HotelNameImpl implements HotelDAO {
 	private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
@@ -205,7 +206,7 @@ public class HotelNameImpl implements HotelDAO {
 		String sql = "select c.hotel_name,r.userid,r.members,r.room_type,r.bed_type,r.check_in,r.check_out,r.payment from hotel c  inner join room r on c.hotel_id=r.hotel where hotel_id=?";
 		try (Connection con = ConnectionUtil.getConnect(); PreparedStatement pst = con.prepareStatement(sql)) {
 			LOGGER.debug(sql);
-			pst.setInt(1,  hotelid);
+			pst.setInt(1, hotelid);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
 				String hotelname2 = rs.getString("hotel_name");
